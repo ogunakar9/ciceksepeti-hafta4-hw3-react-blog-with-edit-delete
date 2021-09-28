@@ -6,21 +6,21 @@ import Footer from "./components/Footer";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  // const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
-        setFilteredPosts(data);
+        // setFilteredPosts(data);
       });
   }, []);
 
   //TODO: filter items
-  const filterPosts = () => {
+  // const filterPosts = () => {
 
-  }
+  // }
 
   return (
     <div className="main-container">
