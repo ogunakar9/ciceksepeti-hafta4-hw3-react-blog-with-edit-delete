@@ -2,7 +2,7 @@
 
 ## What's inside:
 
-* React framework
+* React.js
 * SCSS
 * React hooks - useState, useEffect.
 * API call with fetch.
