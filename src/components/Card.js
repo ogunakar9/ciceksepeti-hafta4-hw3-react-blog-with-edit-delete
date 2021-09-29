@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ post }) => {
+const Card = ({ post, removeCard, editCard }) => {
   const { id, body, title } = post;
   const srcImg = `https://picsum.photos/300?random=${id + 1}`;
 
@@ -15,6 +15,10 @@ const Card = ({ post }) => {
             <p>id: {id}</p>
             <p>title: {title}</p>
             <p>body: {body}</p>
+          </div>
+          <div className="card__icons">
+            <button onClick={() => removeCard(id)}>Remove</button>
+            <button onClick={() => editCard(id)}>Edit</button>
           </div>
         </div>
       </div>

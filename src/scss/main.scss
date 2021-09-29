@@ -17,7 +17,7 @@
 .header__logo {
   display: flex;
   flex: 2;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -35,7 +35,7 @@
 .header__profile-pic {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   flex: 2;
 }
 
@@ -121,4 +121,10 @@
   img {
     width: 100%;
   }
+}
+
+
+.card__icons {
+  display: flex;
+  justify-content: space-between;
 }

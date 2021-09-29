@@ -6,26 +6,52 @@ import Footer from "./components/Footer";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  // const [filteredPosts, setFilteredPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [isFiltering, setIsFiltering] = useState(false);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
-        // setFilteredPosts(data);
+        setFilteredPosts(data);
       });
   }, []);
 
-  //TODO: filter items
-  // const filterPosts = () => {
+  const filterPosts = (searchQuery) => {
+    const newFiltered = posts.filter((p) => {
+        return (
+          p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.body.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      });
 
-  // }
+    setFilteredPosts(newFiltered);
+  };
+
+  const removeCard = (id) => {
+    const newPosts = () => posts.filter((p) => p.id !== id);
+    setPosts(newPosts);
+  };
+
+  const editCard = (id) => {
+    // const newPosts = () => posts.filter(p => p.id !== id);
+  };
 
   return (
     <div className="main-container">
-      <Header />
-      <CardContainer posts={posts}/>
+      <Header
+        filterPosts={filterPosts}
+        isFiltering={isFiltering}
+        setIsFiltering={setIsFiltering}
+      />
+      <CardContainer
+        posts={posts}
+        removeCard={removeCard}
+        editCard={editCard}
+        isFiltering={isFiltering}
+        filteredPosts={filteredPosts}
+      />
       <Footer />
     </div>
   );
