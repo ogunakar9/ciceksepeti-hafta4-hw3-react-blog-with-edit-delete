@@ -2,12 +2,21 @@ import React from "react";
 
 const Card = ({ post }) => {
   const { id, body, title } = post;
+  const srcImg = `https://picsum.photos/300?random=${id + 1}`;
+
   return (
-    <div className="card-container">
+    <div className="card__container">
       <div className="card">
-        <p>id: {id}</p>
-        <p>title: {title}</p>
-        <p>body: {body}</p>
+        <div className="card__img">
+          <img src={srcImg} alt="card__img" />
+        </div>
+        <div className="card__non-image-container">
+          <div className="card__text">
+            <p>id: {id}</p>
+            <p>title: {title}</p>
+            <p>body: {body}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
