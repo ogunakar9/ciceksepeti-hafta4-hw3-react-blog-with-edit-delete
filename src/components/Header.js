@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Header = ({filterPosts, setIsFiltering}) => {
+const Header = ({filterPosts, setIsFiltering, filteredPosts, setShowMessage}) => {
     const [val, setVal] = useState("");
 
     const handleSearch = (e) => {
@@ -10,6 +10,13 @@ const Header = ({filterPosts, setIsFiltering}) => {
 
         if (e.target.value === "") {
             setIsFiltering(false);
+        }
+
+        
+        if(filteredPosts.length === 0) {
+            setShowMessage(true);
+        } else {
+            setShowMessage(false);
         }
     }
 
