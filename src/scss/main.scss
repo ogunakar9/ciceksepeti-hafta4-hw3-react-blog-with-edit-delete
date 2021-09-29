@@ -94,8 +94,12 @@
   p {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;  
-    max-height: 20rem;
+    text-overflow: ellipsis;
+    // TODO: make truncation with dots on body
+    &:last-child {
+      white-space: normal;
+      max-height: calc(0.875rem * 1.5 * 3);
+    }
   }
 }
 
@@ -106,7 +110,6 @@
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   filter: contrast(70%);
-  //filter: saturate(180%);
   overflow: hidden;
   position: relative;
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
