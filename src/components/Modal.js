@@ -1,4 +1,5 @@
 import React from "react";
+import { FaWindowClose } from "react-icons/fa";
 
 const Modal = ({
   showModal,
@@ -14,11 +15,9 @@ const Modal = ({
       <div className="modal">
         <div className="modal__header">
           <div className="modal__close-btn">
-            <span onClick={() => setShowModal(false)}>
-              <i className="ri-close-line" />
-            </span>
+            <FaWindowClose onClick={() => setShowModal(false)} />
           </div>
-          <h3>EDIT POST</h3>
+          <h3>EDIT BLOG CARD ITEM</h3>
         </div>
 
         <div>
@@ -38,7 +37,7 @@ const Modal = ({
           <div>
             <div className="label">Content</div>
             <textarea
-              rows="7"
+              rows="5"
               name="body"
               defaultValue={body}
               onChange={(e) =>
@@ -49,13 +48,15 @@ const Modal = ({
               }
             />
           </div>
-          <button
-            onClick={() =>
-              saveEdit(id, editPostContent.title, editPostContent.body)
-            }
-          >
-            SAVE
-          </button>
+          <div className="modal__save-btn">
+            <button
+              onClick={() =>
+                saveEdit(id, editPostContent.title, editPostContent.body)
+              }
+            >
+              SAVE
+            </button>
+          </div>
         </div>
       </div>
     </div>
