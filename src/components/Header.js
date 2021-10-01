@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBlogger } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 const Header = ({ filterPosts, setIsFiltering, filteredPosts }) => {
   const [val, setVal] = useState("");
@@ -31,12 +32,15 @@ const Header = ({ filterPosts, setIsFiltering, filteredPosts }) => {
         <p>Blog Details</p>
       </div>
       <div className="header__input-container">
-        <input
-          type="text"
-          placeholder="Search"
-          value={val}
-          onChange={(e) => handleSearch(e)}
-        />
+        <div className="header__input-input-wrapper">
+          <input
+            type="text"
+            placeholder="Search"
+            value={val}
+            onChange={(e) => handleSearch(e)}
+          />
+          <FaSearch className="header__input-icon" />
+        </div>
       </div>
       <div className="header__profile-pic">
         <FaUserTie

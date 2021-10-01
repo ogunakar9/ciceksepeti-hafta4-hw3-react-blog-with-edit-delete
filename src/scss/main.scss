@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .main-container {
   // padding: 1rem;
   background-color: #f0f0f0;
@@ -34,8 +40,22 @@
   justify-content: center;
   flex: 7;
 
-  input {
+  .header__input-input-wrapper {
+    position: relative;
     width: 80%;
+    display: flex;
+    align-items: center;
+    input {
+      height: 2rem;
+      width: 100%;
+      padding-left: 2.5rem;
+    }
+
+    .header__input-icon {
+      position: absolute;
+      left: 1rem;
+      top: center;
+    }
   }
 }
 
