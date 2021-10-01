@@ -23,7 +23,7 @@ function App() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
-        data = data.splice(0, 15);
+        data = data.splice(0, 16);
         setPosts(data);
         setFilteredPosts(data);
       });
