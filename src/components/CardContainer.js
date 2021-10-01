@@ -7,7 +7,6 @@ const CardContainer = ({
   editCard,
   filteredPosts,
   isFiltering,
-  showMessage,
   showModal,
   setShowModal,
   saveEdit,
@@ -17,7 +16,7 @@ const CardContainer = ({
   return (
     <div className="cards__main-container">
       {isFiltering ? (
-        showMessage ? (
+        filteredPosts.length === 0 ? (
           <div>
             <h1>There aren't any cards related to your search</h1>
           </div>
@@ -38,6 +37,10 @@ const CardContainer = ({
             );
           })
         )
+      ) : posts.length === 0 ? (
+        <div>
+          <h1>There aren't any cards related to your search</h1>
+        </div>
       ) : (
         posts.map((post) => {
           return (

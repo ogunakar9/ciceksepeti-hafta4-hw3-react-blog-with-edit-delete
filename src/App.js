@@ -10,9 +10,9 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [timeoutVar, setTimeoutVar] = useState(null);
   const [editPostContent, setEditPostContent] = useState({
     title: "",
     body: "",
@@ -23,6 +23,7 @@ function App() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
+        data = data.splice(0, 15);
         setPosts(data);
         setFilteredPosts(data);
       });
@@ -40,21 +41,12 @@ function App() {
   };
 
   const removeCard = (id) => {
-    const newPosts = () => posts.filter((p) => p.id !== id);
+    const newPosts = posts.filter((p) => p.id !== id);
     setPosts(newPosts);
-    const newFiltered = () => filteredPosts.filter((p) => p.id !== id);
+    const newFiltered = filteredPosts.filter((p) => p.id !== id);
     setFilteredPosts(newFiltered);
 
-    // TODO: find out why deleting every post doesnt show message.
-    // console.log(newPosts.length) always 0;
-    if (filteredPosts.length === 0 || newPosts.length === 0) {
-      setShowMessage(true);
-      // console.log(showMessage) always true;
-    } else {
-      setShowMessage(false);
-    }
-
-    CreateNotification(setShowNotification);
+    CreateNotification(setShowNotification, timeoutVar, setTimeoutVar);
   };
 
   const editCard = () => {
@@ -74,7 +66,7 @@ function App() {
     setPosts(newPosts);
     setShowModal(false);
 
-    CreateNotification(setShowNotification);
+    CreateNotification(setShowNotification, timeoutVar, setTimeoutVar);
   };
 
   return (
@@ -84,7 +76,6 @@ function App() {
         isFiltering={isFiltering}
         setIsFiltering={setIsFiltering}
         filteredPosts={filteredPosts}
-        setShowMessage={setShowMessage}
       />
       <Modal
         showModal={showModal}
@@ -103,7 +94,6 @@ function App() {
         editCard={editCard}
         isFiltering={isFiltering}
         filteredPosts={filteredPosts}
-        showMessage={showMessage}
         showModal={showModal}
         setShowModal={setShowModal}
         saveEdit={saveEdit}
