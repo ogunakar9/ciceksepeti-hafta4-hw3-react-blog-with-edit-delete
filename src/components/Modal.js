@@ -13,7 +13,7 @@ const Modal = ({
     <div className="modal__container">
       <div className="modal">
         <div className="modal__header">
-          <div className="close">
+          <div className="modal__close-btn">
             <span onClick={() => setShowModal(false)}>
               <i className="ri-close-line" />
             </span>
@@ -27,10 +27,12 @@ const Modal = ({
             <input
               name="title"
               defaultValue={title}
-              onChange={(e) => setEditPostContent({
+              onChange={(e) =>
+                setEditPostContent({
                   ...editPostContent,
-                  title: e.target.value
-              })}
+                  title: e.target.value,
+                })
+              }
             />
           </div>
           <div>
@@ -39,13 +41,19 @@ const Modal = ({
               rows="7"
               name="body"
               defaultValue={body}
-              onChange={(e) => setEditPostContent({
-                ...editPostContent,
-                body: e.target.value
-            })}
+              onChange={(e) =>
+                setEditPostContent({
+                  ...editPostContent,
+                  body: e.target.value,
+                })
+              }
             />
           </div>
-          <button onClick={() => saveEdit(id, editPostContent.title, editPostContent.body)}>
+          <button
+            onClick={() =>
+              saveEdit(id, editPostContent.title, editPostContent.body)
+            }
+          >
             SAVE
           </button>
         </div>
