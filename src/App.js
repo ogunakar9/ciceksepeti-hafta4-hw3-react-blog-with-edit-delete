@@ -70,6 +70,7 @@ function App() {
     setPosts(newPosts);
     setShowModal(false);
 
+    //send notification
     CreateNotification(setShowNotification, timeoutVar, setTimeoutVar);
   };
 

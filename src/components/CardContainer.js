@@ -39,8 +39,8 @@ const CardContainer = ({
             );
           })
         )
-        //here length = 0 when all cards deleted
-      ) : posts.length === 0 ? (
+      ) : //here length = 0 when all cards deleted
+      posts.length === 0 ? (
         <div>
           <h1>There aren't any cards related to your search</h1>
         </div>

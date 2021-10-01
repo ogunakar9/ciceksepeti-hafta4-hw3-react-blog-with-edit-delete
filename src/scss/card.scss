@@ -29,6 +29,9 @@
   @media (min-width: 56rem) {
     width: 22%;
   }
+  @media screen and (max-width: 570px) {
+    width: 90%;
+  }
 }
 
 .card {

@@ -1,5 +1,6 @@
 import React from "react";
 
+//send notification that stays on sceen for 3 seconds
 export const CreateNotification = (
   setShowNotification,
   timeoutVar,
