@@ -19,7 +19,7 @@ const Card = ({
       body,
     });
 
-    editCard(id);
+    editCard();
   }
   return (
     <>

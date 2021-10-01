@@ -4,12 +4,14 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
+import Notification, { CreateNotification } from "./components/Notification";
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [editPostContent, setEditPostContent] = useState({
     title: "",
@@ -51,10 +53,11 @@ function App() {
     } else {
       setShowMessage(false);
     }
+
+    CreateNotification(setShowNotification);
   };
 
-  const editCard = (id) => {
-    // const newPosts = () => posts.filter(p => p.id !== id);
+  const editCard = () => {
     setShowModal(true);
   };
 
@@ -69,13 +72,9 @@ function App() {
     });
 
     setPosts(newPosts);
+    setShowModal(false);
 
-    const popUp = () =>
-      setTimeout(() => {
-        setShowModal(false);
-      }, 3000);
-    popUp();
-    clearTimeout(popUp);
+    CreateNotification(setShowNotification);
   };
 
   return (
@@ -93,6 +92,10 @@ function App() {
         setEditPostContent={setEditPostContent}
         saveEdit={saveEdit}
         setShowModal={setShowModal}
+      />
+      <Notification
+        showNotification={showNotification}
+        setShowNotification={setShowNotification}
       />
       <CardContainer
         posts={posts}
