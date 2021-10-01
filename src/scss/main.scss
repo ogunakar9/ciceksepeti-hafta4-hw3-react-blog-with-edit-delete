@@ -21,6 +21,11 @@
   justify-content: flex-start;
   align-items: center;
   margin-left: 0.5rem;
+
+  .header__logo-icon {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
 }
 
 .header__input-container {
@@ -40,6 +45,15 @@
   justify-content: flex-end;
   flex: 2;
   margin-right: 0.5rem;
+
+  .header__profile-icon {
+    font-size: 1.5rem;
+
+    &:hover {
+      color: rgba(129, 28, 28, 0.582);
+      cursor: pointer;
+    }
+  }
 }
 
 /*---------------------- CARD RELATED -----------------*/
@@ -152,7 +166,7 @@
 .footer__container {
   display: flex;
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   padding: 1.3rem;
   box-shadow: 0 0.3rem #d8d7d744;
@@ -188,7 +202,6 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
-  // text-align: center;
 
   .modal {
     background-color: #f0f0f0;
