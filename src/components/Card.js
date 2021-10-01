@@ -1,16 +1,17 @@
 import React from "react";
+import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 const Card = ({
   post,
   removeCard,
   editCard,
   editPostContent,
-  setEditPostContent
+  setEditPostContent,
 }) => {
   const { id, body, title } = post;
   const srcImg = `https://picsum.photos/300?random=${id + 1}`;
-  
-  
+
   const handleEdit = () => {
     setEditPostContent({
       ...editPostContent,
@@ -20,7 +21,7 @@ const Card = ({
     });
 
     editCard();
-  }
+  };
   return (
     <>
       <div className="card__container">
@@ -35,8 +36,8 @@ const Card = ({
               <p>body: {body}</p>
             </div>
             <div className="card__icons">
-              <button onClick={() => removeCard(id)}>Remove</button>
-              <button onClick={() => handleEdit()}>Edit</button>
+              <FaTrashAlt onClick={() => removeCard(id)} />
+              <FaEdit onClick={() => handleEdit()} />
             </div>
           </div>
         </div>
