@@ -29,7 +29,7 @@ const Header = ({ filterPosts, setIsFiltering, filteredPosts }) => {
     <div className="header__container">
       <div className="header__logo">
         <FaBlogger className="header__logo-icon" />
-        <p>Blog Details</p>
+        <p className="header__logo-text">Blog Details</p>
       </div>
       <div className="header__input-container">
         <div className="header__input-input-wrapper">
