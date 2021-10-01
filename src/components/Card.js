@@ -31,13 +31,13 @@ const Card = ({
           </div>
           <div className="card__non-image-container">
             <div className="card__text">
-              <p>id: {id}</p>
-              <p>title: {title}</p>
-              <p>body: {body}</p>
+              <p><b>id:</b> {id}</p>
+              <p><b>title:</b> {title}</p>
+              <p><b>body:</b> {body}</p>
             </div>
             <div className="card__icons">
-              <FaTrashAlt onClick={() => removeCard(id)} />
-              <FaEdit onClick={() => handleEdit()} />
+              <FaTrashAlt className="card__icons-hover" onClick={() => removeCard(id)} />
+              <FaEdit className="card__icons-hover" onClick={() => handleEdit()} />
             </div>
           </div>
         </div>

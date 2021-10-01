@@ -17,10 +17,12 @@ const CardContainer = ({
     <div className="cards__main-container">
       {isFiltering ? (
         filteredPosts.length === 0 ? (
-          <div>
+          //no cards contain searched text
+          <div className="cards__no-card-message">
             <h1>There aren't any cards related to your search</h1>
           </div>
         ) : (
+          //filtered array
           filteredPosts.map((post) => {
             return (
               <Card
@@ -37,11 +39,13 @@ const CardContainer = ({
             );
           })
         )
+        //here length = 0 when all cards deleted
       ) : posts.length === 0 ? (
         <div>
           <h1>There aren't any cards related to your search</h1>
         </div>
       ) : (
+        //array without filter but includes edits and removals
         posts.map((post) => {
           return (
             <Card

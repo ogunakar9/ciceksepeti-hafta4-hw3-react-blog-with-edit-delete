@@ -1,0 +1,70 @@
+/*--------------------- HEADER ---------------------*/
+.header__container {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.3rem;
+    box-shadow: 0 0.3rem #d8d7d744;
+    border-bottom: 2px solid grey;
+    margin-bottom: 2rem;
+  }
+  
+  .header__logo {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 0.5rem;
+  
+    .header__logo-icon {
+      margin-right: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+  
+  .header__input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 7;
+  
+    .header__input-input-wrapper {
+      position: relative;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      
+      input {
+        height: 2rem;
+        width: 100%;
+        padding-left: 2.7rem;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.1rem;
+        border-radius: 0.3rem;
+      }
+  
+      .header__input-icon {
+        position: absolute;
+        left: 1rem;
+        top: center;
+      }
+    }
+  }
+  
+  .header__profile-pic {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 2;
+    margin-right: 0.5rem;
+  
+    .header__profile-icon {
+      font-size: 1.5rem;
+  
+      &:hover {
+        color: rgba(129, 28, 28, 0.582);
+        cursor: pointer;
+      }
+    }
+  }

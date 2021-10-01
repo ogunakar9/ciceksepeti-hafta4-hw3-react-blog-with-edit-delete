@@ -19,6 +19,7 @@ function App() {
     id: "",
   });
 
+  //fetch data
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
@@ -29,6 +30,7 @@ function App() {
       });
   }, []);
 
+  //filter searched items
   const filterPosts = (searchQuery) => {
     const newFiltered = posts.filter((p) => {
       return (
@@ -40,6 +42,7 @@ function App() {
     setFilteredPosts(newFiltered);
   };
 
+  //remove card items
   const removeCard = (id) => {
     const newPosts = posts.filter((p) => p.id !== id);
     setPosts(newPosts);
@@ -53,6 +56,7 @@ function App() {
     setShowModal(true);
   };
 
+  //save edited text
   const saveEdit = (id, editTitle, editBody) => {
     const newPosts = posts.map((p) => {
       if (p.id === id) {

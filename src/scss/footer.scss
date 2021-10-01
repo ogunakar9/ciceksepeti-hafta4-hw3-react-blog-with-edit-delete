@@ -1,0 +1,28 @@
+/*--------------FOOTER ------------*/
+.footer__container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 1.3rem;
+    box-shadow: 0 0.3rem #d8d7d744;
+    border-top: 2px solid grey;
+    margin-top: 2rem;
+  
+    .footer__github-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      .footer__github-icon {
+        &:hover {
+          color: rgba(129, 28, 28, 0.582);
+          cursor: pointer;
+        }
+      }
+  
+      span {
+        margin-right: 1rem;
+      }
+    }
+  }

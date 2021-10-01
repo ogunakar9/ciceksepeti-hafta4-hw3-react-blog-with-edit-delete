@@ -1,0 +1,16 @@
+/* ------------NOTIFICATION ---------*/
+.notification-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    p {
+      border: 1px solid green;
+      background-color: green;
+      color: white;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      position: absolute;
+      z-index: 3;
+    }
+  }
