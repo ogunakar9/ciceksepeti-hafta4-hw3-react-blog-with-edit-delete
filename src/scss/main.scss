@@ -135,6 +135,7 @@ body {
     text-overflow: ellipsis;
     // TODO: make truncation with dots on body
     &:last-child {
+      text-align: justify;
       white-space: normal;
       max-height: calc(0.875rem * 1.5 * 3);
     }
@@ -273,6 +274,7 @@ body {
       font-size: 1.2rem;
       border-radius: 0.5em;
       text-align: left;
+      font-family: "Roboto", sans-serif;
     }
 
     h3 {
