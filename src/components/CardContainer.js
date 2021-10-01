@@ -8,6 +8,11 @@ const CardContainer = ({
   filteredPosts,
   isFiltering,
   showMessage,
+  showModal,
+  setShowModal,
+  saveEdit,
+  editPostContent,
+  setEditPostContent,
 }) => {
   return (
     <div className="cards__main-container">
@@ -24,6 +29,11 @@ const CardContainer = ({
                 post={post}
                 removeCard={removeCard}
                 editCard={editCard}
+                showModal={showModal}
+                setShowModal={setShowModal}
+                saveEdit={saveEdit}
+                editPostContent={editPostContent}
+                setEditPostContent={setEditPostContent}
               />
             );
           })
@@ -36,6 +46,11 @@ const CardContainer = ({
               post={post}
               removeCard={removeCard}
               editCard={editCard}
+              showModal={showModal}
+              setShowModal={setShowModal}
+              saveEdit={saveEdit}
+              editPostContent={editPostContent}
+              setEditPostContent={setEditPostContent}
             />
           );
         })

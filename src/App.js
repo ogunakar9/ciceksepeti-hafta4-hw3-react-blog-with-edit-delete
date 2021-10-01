@@ -3,12 +3,19 @@ import CardContainer from "./components/CardContainer";
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [editPostContent, setEditPostContent] = useState({
+    title: "",
+    body: "",
+    id: "",
+  });
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -48,6 +55,27 @@ function App() {
 
   const editCard = (id) => {
     // const newPosts = () => posts.filter(p => p.id !== id);
+    setShowModal(true);
+  };
+
+  const saveEdit = (id, editTitle, editBody) => {
+    const newPosts = posts.map((p) => {
+      if (p.id === id) {
+        p.title = editTitle;
+        p.body = editBody;
+      }
+
+      return p;
+    });
+
+    setPosts(newPosts);
+
+    const popUp = () =>
+      setTimeout(() => {
+        setShowModal(false);
+      }, 3000);
+    popUp();
+    clearTimeout(popUp);
   };
 
   return (
@@ -59,6 +87,13 @@ function App() {
         filteredPosts={filteredPosts}
         setShowMessage={setShowMessage}
       />
+      <Modal
+        showModal={showModal}
+        editPostContent={editPostContent}
+        setEditPostContent={setEditPostContent}
+        saveEdit={saveEdit}
+        setShowModal={setShowModal}
+      />
       <CardContainer
         posts={posts}
         removeCard={removeCard}
@@ -66,6 +101,10 @@ function App() {
         isFiltering={isFiltering}
         filteredPosts={filteredPosts}
         showMessage={showMessage}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        saveEdit={saveEdit}
+        setEditPostContent={setEditPostContent}
       />
       <Footer />
     </div>
