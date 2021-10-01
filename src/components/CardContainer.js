@@ -12,12 +12,13 @@ const CardContainer = ({
   saveEdit,
   editPostContent,
   setEditPostContent,
+  loading,
 }) => {
   return (
     <div className="cards__main-container">
       {isFiltering ? (
-        filteredPosts.length === 0 ? (
-          //no cards contain searched text
+        filteredPosts.length === 0 && !loading ? (
+          //no cards contain searched text and only show msg when not loading
           <div className="cards__no-card-message">
             <h1>There aren't any cards related to your search</h1>
           </div>
@@ -39,8 +40,8 @@ const CardContainer = ({
             );
           })
         )
-      ) : //here length = 0 when all cards deleted
-      posts.length === 0 ? (
+      ) : //here length = 0 when all cards deleted and only show msg when not loading
+      posts.length === 0 && !loading ? (
         <div>
           <h1>There aren't any cards related to your search</h1>
         </div>

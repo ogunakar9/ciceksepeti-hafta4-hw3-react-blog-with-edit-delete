@@ -13,6 +13,7 @@ function App() {
   const [showNotification, setShowNotification] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [timeoutVar, setTimeoutVar] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [editPostContent, setEditPostContent] = useState({
     title: "",
     body: "",
@@ -27,6 +28,7 @@ function App() {
         data = data.splice(0, 16);
         setPosts(data);
         setFilteredPosts(data);
+        setLoading(false);
       });
   }, []);
 
@@ -103,6 +105,7 @@ function App() {
         setShowModal={setShowModal}
         saveEdit={saveEdit}
         setEditPostContent={setEditPostContent}
+        loading={loading}
       />
       <Footer />
     </div>
