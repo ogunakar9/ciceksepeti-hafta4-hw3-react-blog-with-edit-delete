@@ -15,7 +15,6 @@ const Card = ({
   const handleEdit = () => {
     setEditPostContent({
       ...editPostContent,
-      id,
       title,
       body,
     });
